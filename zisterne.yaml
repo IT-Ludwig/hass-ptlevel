@@ -1,6 +1,6 @@
   - platform: rest
     name: zisterne2_percent
-    resource: http://[IP OF PTLEVEL]/data/sendZisterneData.php
+    resource: http://[IP OF WebServer]/data/sendZisterneData.php
     state_class: measurement
     device_class: moisture
     force_update: true
