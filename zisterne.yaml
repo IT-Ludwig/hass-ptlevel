@@ -1,0 +1,52 @@
+  - platform: rest
+    name: zisterne2_percent
+    resource: http://[IP OF PTLEVEL]/data/sendZisterneData.php
+    state_class: measurement
+    device_class: moisture
+    force_update: true
+    unique_id: sensor.zisterne2_percent
+    unit_of_measurement: '%'
+    json_attributes:
+      - zisterne
+    # value_template: "{{ state_attr('sensor.zisterne2_percent', 'zisterne')['percent'] }}"
+    value_template: '{{ value_json.zisterne.percent | float }}'
+   
+
+  - platform: rest
+    name: zisterne2_cm
+    resource: http://10.10.12.11/data/sendZisterneData.php
+    state_class: measurement
+    device_class: distance
+    force_update: true
+    unique_id: sensor.zisterne2_cm
+    json_attributes:
+      - zisterne
+    # value_template: "{{ state_attr('sensor.zisterne2_cm', 'zisterne')['cm'] }}"
+    value_template: '{{ value_json.zisterne.cm | float }}'
+    unit_of_measurement: cm
+
+  - platform: rest
+    name: zisterne2_vol
+    resource: http://10.10.12.11/data/sendZisterneData.php
+    state_class: measurement
+    device_class: volume
+    force_update: true
+    unique_id: sensor.zisterne2_vol
+    json_attributes:
+      - zisterne
+    # value_template: "{{ state_attr('sensor.zisterne2_vol', 'zisterne')['vol'] }}"
+    value_template: '{{ value_json.zisterne.vol | float }}'
+    unit_of_measurement: L
+
+  - platform: rest
+    name: zisterne2_battery
+    resource: http://10.10.12.11/data/sendZisterneData.php
+    state_class: measurement
+    device_class: voltage
+    force_update: true
+    unique_id: sensor.zisterne2_battery
+    json_attributes:
+      - zisterne
+    # value_template: "{{ state_attr('sensor.zisterne2_battery', 'zisterne')['battery'] }}"
+    value_template: '{{ value_json.zisterne.battery | float }}'
+    unit_of_measurement: V
